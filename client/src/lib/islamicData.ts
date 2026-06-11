@@ -1,0 +1,449 @@
+export const PRAYER_TIMES_TASHKENT: Record<number, { fajr: string; sunrise: string; dhuhr: string; asr: string; maghrib: string; isha: string }> = {
+  1:  { fajr: "06:20", sunrise: "08:00", dhuhr: "13:07", asr: "15:38", maghrib: "17:56", isha: "19:30" },
+  2:  { fajr: "05:50", sunrise: "07:27", dhuhr: "13:07", asr: "16:10", maghrib: "18:30", isha: "20:05" },
+  3:  { fajr: "05:05", sunrise: "06:40", dhuhr: "13:01", asr: "16:40", maghrib: "19:06", isha: "20:40" },
+  4:  { fajr: "04:10", sunrise: "05:48", dhuhr: "12:51", asr: "17:10", maghrib: "19:40", isha: "21:20" },
+  5:  { fajr: "03:20", sunrise: "05:05", dhuhr: "12:45", asr: "17:35", maghrib: "20:15", isha: "22:00" },
+  6:  { fajr: "03:00", sunrise: "04:48", dhuhr: "12:48", asr: "17:50", maghrib: "20:40", isha: "22:30" },
+  7:  { fajr: "03:10", sunrise: "04:57", dhuhr: "12:55", asr: "17:48", maghrib: "20:42", isha: "22:25" },
+  8:  { fajr: "03:45", sunrise: "05:25", dhuhr: "12:58", asr: "17:35", maghrib: "20:20", isha: "21:55" },
+  9:  { fajr: "04:25", sunrise: "06:00", dhuhr: "12:48", asr: "17:08", maghrib: "19:40", isha: "21:10" },
+  10: { fajr: "05:05", sunrise: "06:35", dhuhr: "12:35", asr: "16:35", maghrib: "18:55", isha: "20:25" },
+  11: { fajr: "05:50", sunrise: "07:20", dhuhr: "12:28", asr: "15:55", maghrib: "18:15", isha: "19:50" },
+  12: { fajr: "06:20", sunrise: "07:58", dhuhr: "12:25", asr: "15:25", maghrib: "17:45", isha: "19:20" },
+};
+
+export const NAMES_99 = [
+  { number: 1,  arabic: "الرَّحْمَنُ",    transliteration: "Ar-Rahman",      uzbek: "Mehribon" },
+  { number: 2,  arabic: "الرَّحِيمُ",     transliteration: "Ar-Rahim",       uzbek: "Rahmli" },
+  { number: 3,  arabic: "الْمَلِكُ",      transliteration: "Al-Malik",       uzbek: "Shoh, Hukmdor" },
+  { number: 4,  arabic: "الْقُدُّوسُ",    transliteration: "Al-Quddus",      uzbek: "Muqaddas" },
+  { number: 5,  arabic: "السَّلَامُ",     transliteration: "As-Salam",       uzbek: "Tinchlik Manbai" },
+  { number: 6,  arabic: "الْمُؤْمِنُ",    transliteration: "Al-Mu'min",      uzbek: "Ishonch Beruvchi" },
+  { number: 7,  arabic: "الْمُهَيْمِنُ",  transliteration: "Al-Muhaymin",    uzbek: "Qo'riqlovchi" },
+  { number: 8,  arabic: "الْعَزِيزُ",     transliteration: "Al-Aziz",        uzbek: "Qudratli" },
+  { number: 9,  arabic: "الْجَبَّارُ",    transliteration: "Al-Jabbar",      uzbek: "Ulug'vor" },
+  { number: 10, arabic: "الْمُتَكَبِّرُ", transliteration: "Al-Mutakabbir",  uzbek: "Buyuk" },
+  { number: 11, arabic: "الْخَالِقُ",     transliteration: "Al-Khaliq",      uzbek: "Yaratuvchi" },
+  { number: 12, arabic: "الْبَارِئُ",     transliteration: "Al-Bari'",       uzbek: "Shakl Beruvchi" },
+  { number: 13, arabic: "الْمُصَوِّرُ",   transliteration: "Al-Musawwir",    uzbek: "Surat Beruvchi" },
+  { number: 14, arabic: "الْغَفَّارُ",    transliteration: "Al-Ghaffar",     uzbek: "Kechiruvchi" },
+  { number: 15, arabic: "الْقَهَّارُ",    transliteration: "Al-Qahhar",      uzbek: "G'olib" },
+  { number: 16, arabic: "الْوَهَّابُ",    transliteration: "Al-Wahhab",      uzbek: "Ulashuvchi" },
+  { number: 17, arabic: "الرَّزَّاقُ",    transliteration: "Ar-Razzaq",      uzbek: "Rizq Beruvchi" },
+  { number: 18, arabic: "الْفَتَّاحُ",    transliteration: "Al-Fattah",      uzbek: "Ochuvchi" },
+  { number: 19, arabic: "الْعَلِيمُ",     transliteration: "Al-Alim",        uzbek: "Biluvchi" },
+  { number: 20, arabic: "الْقَابِضُ",     transliteration: "Al-Qabid",       uzbek: "Toraytiruvchi" },
+  { number: 21, arabic: "الْبَاسِطُ",     transliteration: "Al-Basit",       uzbek: "Kengaytiruvchi" },
+  { number: 22, arabic: "الْخَافِضُ",     transliteration: "Al-Khafid",      uzbek: "Pastlatuvchi" },
+  { number: 23, arabic: "الرَّافِعُ",     transliteration: "Ar-Rafi'",       uzbek: "Ko'taruvchi" },
+  { number: 24, arabic: "الْمُعِزُّ",     transliteration: "Al-Mu'izz",      uzbek: "Sharaflovchi" },
+  { number: 25, arabic: "الْمُذِلُّ",     transliteration: "Al-Mudhill",     uzbek: "Xor Qiluvchi" },
+  { number: 26, arabic: "السَّمِيعُ",     transliteration: "As-Sami'",       uzbek: "Eshituvchi" },
+  { number: 27, arabic: "الْبَصِيرُ",     transliteration: "Al-Basir",       uzbek: "Ko'ruvchi" },
+  { number: 28, arabic: "الْحَكَمُ",      transliteration: "Al-Hakam",       uzbek: "Hukm Chiqaruvchi" },
+  { number: 29, arabic: "الْعَدْلُ",      transliteration: "Al-Adl",         uzbek: "Adolatli" },
+  { number: 30, arabic: "اللَّطِيفُ",     transliteration: "Al-Latif",       uzbek: "Muloyim, Nozik" },
+  { number: 31, arabic: "الْخَبِيرُ",     transliteration: "Al-Khabir",      uzbek: "Xabardor" },
+  { number: 32, arabic: "الْحَلِيمُ",     transliteration: "Al-Halim",       uzbek: "Sabr-toqatli" },
+  { number: 33, arabic: "الْعَظِيمُ",     transliteration: "Al-Azim",        uzbek: "Ulug'" },
+  { number: 34, arabic: "الْغَفُورُ",     transliteration: "Al-Ghafur",      uzbek: "Kechiruvchi" },
+  { number: 35, arabic: "الشَّكُورُ",     transliteration: "Ash-Shakur",     uzbek: "Shukrona Qabul Qiluvchi" },
+  { number: 36, arabic: "الْعَلِيُّ",     transliteration: "Al-Ali",         uzbek: "Oliy, Baland" },
+  { number: 37, arabic: "الْكَبِيرُ",     transliteration: "Al-Kabir",       uzbek: "Buyuk" },
+  { number: 38, arabic: "الْحَفِيظُ",     transliteration: "Al-Hafiz",       uzbek: "Qo'riqlovchi" },
+  { number: 39, arabic: "الْمُقِيتُ",     transliteration: "Al-Muqit",       uzbek: "Oziqlantirguvchi" },
+  { number: 40, arabic: "الْحَسِيبُ",     transliteration: "Al-Hasib",       uzbek: "Hisob Oluvchi" },
+  { number: 41, arabic: "الْجَلِيلُ",     transliteration: "Al-Jalil",       uzbek: "Jalolat Egasi" },
+  { number: 42, arabic: "الْكَرِيمُ",     transliteration: "Al-Karim",       uzbek: "Saxiy, Mukarram" },
+  { number: 43, arabic: "الرَّقِيبُ",     transliteration: "Ar-Raqib",       uzbek: "Kuzatuvchi" },
+  { number: 44, arabic: "الْمُجِيبُ",     transliteration: "Al-Mujib",       uzbek: "Javob Beruvchi" },
+  { number: 45, arabic: "الْوَاسِعُ",     transliteration: "Al-Wasi'",       uzbek: "Keng, Cheksiz" },
+  { number: 46, arabic: "الْحَكِيمُ",     transliteration: "Al-Hakim",       uzbek: "Hikmatli" },
+  { number: 47, arabic: "الْوَدُودُ",     transliteration: "Al-Wadud",       uzbek: "Sevuvchi" },
+  { number: 48, arabic: "الْمَجِيدُ",     transliteration: "Al-Majid",       uzbek: "Sharafli" },
+  { number: 49, arabic: "الْبَاعِثُ",     transliteration: "Al-Ba'ith",      uzbek: "Tiriltirguvchi" },
+  { number: 50, arabic: "الشَّهِيدُ",     transliteration: "Ash-Shahid",     uzbek: "Guvoh" },
+  { number: 51, arabic: "الْحَقُّ",       transliteration: "Al-Haqq",        uzbek: "Haqiqat" },
+  { number: 52, arabic: "الْوَكِيلُ",     transliteration: "Al-Wakil",       uzbek: "Vakillik Qiluvchi" },
+  { number: 53, arabic: "الْقَوِيُّ",     transliteration: "Al-Qawi",        uzbek: "Kuchli" },
+  { number: 54, arabic: "الْمَتِينُ",     transliteration: "Al-Matin",       uzbek: "Mustahkam" },
+  { number: 55, arabic: "الْوَلِيُّ",     transliteration: "Al-Wali",        uzbek: "Do'st, Yaqin" },
+  { number: 56, arabic: "الْحَمِيدُ",     transliteration: "Al-Hamid",       uzbek: "Maqtovga Sazovor" },
+  { number: 57, arabic: "الْمُحْصِي",     transliteration: "Al-Muhsi",       uzbek: "Sanab Biluvchi" },
+  { number: 58, arabic: "الْمُبْدِئُ",    transliteration: "Al-Mubdi'",      uzbek: "Boshlovchi" },
+  { number: 59, arabic: "الْمُعِيدُ",     transliteration: "Al-Mu'id",       uzbek: "Qaytaruvchi" },
+  { number: 60, arabic: "الْمُحْيِي",     transliteration: "Al-Muhyi",       uzbek: "Hayot Beruvchi" },
+  { number: 61, arabic: "الْمُمِيتُ",     transliteration: "Al-Mumit",       uzbek: "O'ldiruvchi" },
+  { number: 62, arabic: "الْحَيُّ",       transliteration: "Al-Hayy",        uzbek: "Tirik" },
+  { number: 63, arabic: "الْقَيُّومُ",    transliteration: "Al-Qayyum",      uzbek: "O'zi Mavjud" },
+  { number: 64, arabic: "الْوَاجِدُ",     transliteration: "Al-Wajid",       uzbek: "Topuvchi" },
+  { number: 65, arabic: "الْمَاجِدُ",     transliteration: "Al-Majid",       uzbek: "Ulug'vor" },
+  { number: 66, arabic: "الْوَاحِدُ",     transliteration: "Al-Wahid",       uzbek: "Yagona" },
+  { number: 67, arabic: "الْأَحَدُ",      transliteration: "Al-Ahad",        uzbek: "Bir" },
+  { number: 68, arabic: "الصَّمَدُ",      transliteration: "As-Samad",       uzbek: "Muhtoj Bo'lmagan" },
+  { number: 69, arabic: "الْقَادِرُ",     transliteration: "Al-Qadir",       uzbek: "Qodir" },
+  { number: 70, arabic: "الْمُقْتَدِرُ",  transliteration: "Al-Muqtadir",    uzbek: "Qudratli" },
+  { number: 71, arabic: "الْمُقَدِّمُ",   transliteration: "Al-Muqaddim",    uzbek: "Olga Qo'yuvchi" },
+  { number: 72, arabic: "الْمُؤَخِّرُ",   transliteration: "Al-Mu'akhkhir",  uzbek: "Orqaga Qoldiruvchi" },
+  { number: 73, arabic: "الْأَوَّلُ",     transliteration: "Al-Awwal",       uzbek: "Birinchi" },
+  { number: 74, arabic: "الْآخِرُ",       transliteration: "Al-Akhir",       uzbek: "Oxirgi" },
+  { number: 75, arabic: "الظَّاهِرُ",     transliteration: "Az-Zahir",       uzbek: "Zohir" },
+  { number: 76, arabic: "الْبَاطِنُ",     transliteration: "Al-Batin",       uzbek: "Botiniy" },
+  { number: 77, arabic: "الْوَالِي",      transliteration: "Al-Wali",        uzbek: "Boshqaruvchi" },
+  { number: 78, arabic: "الْمُتَعَالِي",  transliteration: "Al-Muta'ali",    uzbek: "Yuqori" },
+  { number: 79, arabic: "الْبَرُّ",       transliteration: "Al-Barr",        uzbek: "Yaxshi" },
+  { number: 80, arabic: "التَّوَّابُ",    transliteration: "At-Tawwab",      uzbek: "Tavbani Qabul Qiluvchi" },
+  { number: 81, arabic: "الْمُنْتَقِمُ",  transliteration: "Al-Muntaqim",    uzbek: "Qasos Oluvchi" },
+  { number: 82, arabic: "الْعَفُوُّ",     transliteration: "Al-Afuw",        uzbek: "Avf Etuvchi" },
+  { number: 83, arabic: "الرَّؤُوفُ",     transliteration: "Ar-Ra'uf",       uzbek: "Marhamatli" },
+  { number: 84, arabic: "مَالِكُ الْمُلْكِ", transliteration: "Malik-ul-Mulk", uzbek: "Mulk Egasi" },
+  { number: 85, arabic: "ذُو الْجَلَالِ وَالْإِكْرَامِ", transliteration: "Dhul-Jalali wal-Ikram", uzbek: "Jalol va Ikrom Egasi" },
+  { number: 86, arabic: "الْمُقْسِطُ",    transliteration: "Al-Muqsit",      uzbek: "Adolatli" },
+  { number: 87, arabic: "الْجَامِعُ",     transliteration: "Al-Jami'",       uzbek: "To'plovchi" },
+  { number: 88, arabic: "الْغَنِيُّ",     transliteration: "Al-Ghani",       uzbek: "Boy, Muhtoj Emas" },
+  { number: 89, arabic: "الْمُغْنِي",     transliteration: "Al-Mughni",      uzbek: "Boyituvchi" },
+  { number: 90, arabic: "الْمَانِعُ",     transliteration: "Al-Mani'",       uzbek: "To'sqinlik Qiluvchi" },
+  { number: 91, arabic: "الضَّارُّ",      transliteration: "Ad-Darr",        uzbek: "Zarar Yetkazuvchi" },
+  { number: 92, arabic: "النَّافِعُ",     transliteration: "An-Nafi'",       uzbek: "Foyda Keltiruvchi" },
+  { number: 93, arabic: "النُّورُ",       transliteration: "An-Nur",         uzbek: "Nur" },
+  { number: 94, arabic: "الْهَادِي",      transliteration: "Al-Hadi",        uzbek: "Hidoyat Beruvchi" },
+  { number: 95, arabic: "الْبَدِيعُ",     transliteration: "Al-Badi'",       uzbek: "Yangilik Yaratuvchi" },
+  { number: 96, arabic: "الْبَاقِي",      transliteration: "Al-Baqi",        uzbek: "Abadiy" },
+  { number: 97, arabic: "الْوَارِثُ",     transliteration: "Al-Warith",      uzbek: "Meros Oluvchi" },
+  { number: 98, arabic: "الرَّشِيدُ",     transliteration: "Ar-Rashid",      uzbek: "To'g'ri Yo'l Ko'rsatuvchi" },
+  { number: 99, arabic: "الصَّبُورُ",     transliteration: "As-Sabur",       uzbek: "Sabr Qiluvchi" },
+];
+
+export const DUAS = [
+  {
+    category: "Kundalik Duolar",
+    icon: "🌅",
+    items: [
+      {
+        title: "Uyg'onganda",
+        arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+        transliteration: "Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur",
+        uzbek: "Bizni o'ldirganidan keyin qayta tirishtirgan, va qaytish Unga bo'lgan Allohga hamd bo'lsin.",
+      },
+      {
+        title: "Uxlashdan oldin",
+        arabic: "اللَّهُمَّ بِاسْمِكَ أَمُوتُ وَأَحْيَا",
+        transliteration: "Allahumma bismika amutu wa ahya",
+        uzbek: "Allohim, Sening isming bilan o'laman va yashaman.",
+      },
+      {
+        title: "Ovqat yeyishdan oldin",
+        arabic: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ",
+        transliteration: "Bismillahi wa ala barakatillah",
+        uzbek: "Allohning nomi va barakati bilan.",
+      },
+      {
+        title: "Ovqat yeyganidan keyin",
+        arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مِنَ الْمُسْلِمِينَ",
+        transliteration: "Alhamdu lillahil-ladhi at'amana wa saqana wa ja'alana minal-muslimin",
+        uzbek: "Bizni yedirgan, ichirgan va musulmonlardan qilgan Allohga hamd bo'lsin.",
+      },
+    ],
+  },
+  {
+    category: "Namoz Duolari",
+    icon: "🕌",
+    items: [
+      {
+        title: "Istiftohu duosi",
+        arabic: "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلَا إِلَهَ غَيْرُكَ",
+        transliteration: "Subhanakallahumma wa bihamdika wa tabarakasmuka wa ta'ala jadduka wa la ilaha ghayruk",
+        uzbek: "Ey Alloh! Seni hamdu sanolar bilan poklaymen, Sening isming muborak, Sening buyukligi ulug'dir, Senden boshqa iloh yo'q.",
+      },
+      {
+        title: "Qunutu vitir",
+        arabic: "اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ وَعَافِنِي فِيمَنْ عَافَيْتَ",
+        transliteration: "Allahummahdini fiman hadayt, wa 'afini fiman 'afayt",
+        uzbek: "Allohim, hidoyat berganlaringdan men ham hidoyat qilgin, afiyat berganlaringdan men ham afiyat qilgin.",
+      },
+      {
+        title: "Sajdadan keyin",
+        arabic: "سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلَائِكَةِ وَالرُّوحِ",
+        transliteration: "Subbuḥun Quddusun Rabbul-malaa'ikati war-Ruuh",
+        uzbek: "Muqaddas, poklangan farishtalar va ruhning Robbi.",
+      },
+    ],
+  },
+  {
+    category: "Himoya va Panoh",
+    icon: "🛡️",
+    items: [
+      {
+        title: "Tashqariga chiqishda",
+        arabic: "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+        transliteration: "Bismillahi tawakkaltu 'alallahi la hawla wa la quwwata illa billah",
+        uzbek: "Allohning nomi bilan, Allohga tavakkal qildim, kuch-quvvat faqat Allohdandir.",
+      },
+      {
+        title: "Uyga kirganida",
+        arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلِجِ وَخَيْرَ الْمَخْرَجِ",
+        transliteration: "Allahumma inni as'aluka khayral-mawliji wa khayral-makhraj",
+        uzbek: "Allohim, kirish va chiqishning yaxshiligini so'rayman.",
+      },
+      {
+        title: "Kasal bo'lganda",
+        arabic: "اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَاسَ اشْفِهِ وَأَنْتَ الشَّافِي",
+        transliteration: "Allahumma Rabban-naas, adhhibil-ba'sa, ishfi antash-shafi",
+        uzbek: "Allohim, odamlarning Robbi, azobni yoy, shifo ber, sen shifo beruvchisan.",
+      },
+    ],
+  },
+  {
+    category: "Istiqbol va Muvaffaqiyat",
+    icon: "⭐",
+    items: [
+      {
+        title: "Imtihon yoki ishdan oldin",
+        arabic: "رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي",
+        transliteration: "Rabbi-shrah li sadri wa yassir li amri",
+        uzbek: "Rabbim, ko'ksimni kengayt va ishimni osonlashtir.",
+      },
+      {
+        title: "Safarga chiqqanda",
+        arabic: "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ",
+        transliteration: "Subhanal-ladhi sakhkhara lana hadha wa ma kunna lahu muqrinin",
+        uzbek: "Buni bizga bo'ysundirgan zot pok, biz bunga toqat qila olmasdik.",
+      },
+      {
+        title: "Yomg'ir yog'ayotganda",
+        arabic: "اللَّهُمَّ صَيِّبًا نَافِعًا",
+        transliteration: "Allahumma sayyiban nafi'an",
+        uzbek: "Allohim, foydali yomg'ir ber.",
+      },
+    ],
+  },
+];
+
+export const HADITHS = [
+  {
+    id: 1,
+    text: "Eng yaxshi ish – kichik bo'lsa ham doimiy qilinadigan ishdir.",
+    source: "Imom Buxoriy",
+    arabic: "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ",
+    category: "Amal",
+  },
+  {
+    id: 2,
+    text: "Qo'shnilaringga yaxshilik qiling, albatta Alloh sizlarga yaxshilikda bo'ladi.",
+    source: "Imom Buxoriy",
+    arabic: "مَا زَالَ يُوصِينِي جِبْرِيلُ بِالْجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ",
+    category: "Axloq",
+  },
+  {
+    id: 3,
+    text: "Tabassumingiz – sadaqa. Yaxshilikka buyurish va yomonlikdan qaytarish – sadaqa.",
+    source: "Tirmiziy",
+    arabic: "تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ",
+    category: "Axloq",
+  },
+  {
+    id: 4,
+    text: "Inson o'z davrining farzandidir – o'zi bilmasa ham u zamonning ta'siri ostida.",
+    source: "Imom Ali r.a.",
+    arabic: "الناس أبناء الزمان",
+    category: "Hikmat",
+  },
+  {
+    id: 5,
+    text: "Ilm o'rganish har bir musulmon erkak va ayol uchun farzdir.",
+    source: "Ibn Moja",
+    arabic: "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+    category: "Ilm",
+  },
+  {
+    id: 6,
+    text: "Kuchli kishi kurashda g'olib keladiganmas, balki g'azablanib qolgan paytida o'zini bosib oladigandir.",
+    source: "Imom Buxoriy",
+    arabic: "لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ",
+    category: "Axloq",
+  },
+  {
+    id: 7,
+    text: "Allohning bandalariga rahm qiling, Alloh sizlarga rahm qiladi.",
+    source: "Abu Dovud",
+    arabic: "ارْحَمُوا مَنْ فِي الْأَرْضِ يَرْحَمْكُمْ مَنْ فِي السَّمَاءِ",
+    category: "Rahm",
+  },
+  {
+    id: 8,
+    text: "Ota-onangizga yaxshi muomala qiling, chunki jannat ularning oyog'i ostidadir.",
+    source: "Nasaiy",
+    arabic: "الْجَنَّةُ تَحْتَ أَقْدَامِ الْأُمَّهَاتِ",
+    category: "Oila",
+  },
+  {
+    id: 9,
+    text: "Halol rizqni izlab topish har bir musulmonning vazifasidir.",
+    source: "Bayhaqiy",
+    arabic: "طَلَبُ الْحَلَالِ وَاجِبٌ عَلَى كُلِّ مُسْلِمٍ",
+    category: "Hayot",
+  },
+  {
+    id: 10,
+    text: "Iqtisod qiling, chunki bu xayrli amallar ichida kambag'allashmaydigan bir xazinachaqadir.",
+    source: "Ahmad ibn Hanbal",
+    arabic: "مَا عَالَ مَنِ اقْتَصَدَ",
+    category: "Hayot",
+  },
+];
+
+export const ISLAMIC_TOPICS = [
+  {
+    id: "tawhid",
+    title: "Tavhid",
+    icon: "☝️",
+    color: "#10B981",
+    subtitle: "Allohning yagonaligi",
+    content: `Tavhid – islomning asosiy aqidasi bo'lib, Allohning yagonaligiga ishonishni anglatadi.
+
+📌 Tavhidning uch turi:
+
+1️⃣ Tavhid ar-Rububiyya
+Allohning Robb ekanligi – yaratuvchi, rizq beruvchi, boshqaruvchiligiga ishonish. Alloh yolg'iz barcha mavjudotni yaratdi va boshqaradi.
+
+2️⃣ Tavhid al-Uluhiyya
+Allohgagina ibodat qilish. Hech bir ibodatni boshqa mavjudotga yo'naltirmaslik. "La ilaha illallah" – Allohdan o'zga iloh yo'q.
+
+3️⃣ Tavhid al-Asma was-Sifat
+Allohning ismlari va sifatlarini Qur'on va hadisda kelganidek tasdiqlash, o'zgartirishsiz.
+
+📖 Qur'on: "Ayting: U – Alloh, yagonadir. Alloh – Samaddir. U tug'magan va tug'ilmagan. Va Unga hech kim teng emas." (Al-Ixlos 1-4)`,
+  },
+  {
+    id: "salah",
+    title: "Namoz",
+    icon: "🕌",
+    color: "#059669",
+    subtitle: "Islomning ustuni",
+    content: `Namoz – islomning besh ustunidan ikkinchisi va eng muhim ibodatdir.
+
+📌 Namozning 5 vaqti:
+
+🌄 Bomdod (Fajr) – tong otishidan quyosh chiqishigacha
+☀️ Peshin (Zuhr) – quyosh tepa nuqtasidan o'tgandan keyin
+🌤️ Asr – asr vaqtidan quyosh botishigacha
+🌆 Shom (Maghrib) – quyosh botgandan keyingi qisqa vaqt
+🌙 Xufton (Isha) – kechqurun
+
+📌 Namozning shartlari:
+• Tahorat (poklik)
+• Kiblaga yuzlanish
+• Niyat
+• Vaqtida o'qish
+• Avrat yopilishi
+
+📖 Hadis: "Namoz – dinning ustuni. Uni qo'yib qo'ygan – dinini buzdi." (Bayhaqiy)`,
+  },
+  {
+    id: "zakat",
+    title: "Zakot",
+    icon: "💰",
+    color: "#047857",
+    subtitle: "Molning pokligi",
+    content: `Zakot – islomning besh ustunidan biri bo'lib, ma'lum miqdordagi mol-mulkdan beriladigan majburiy sadaqadir.
+
+📌 Zakotning shartlari:
+• Muslim bo'lish
+• Hurriyat (erkin bo'lish)
+• Nisob miqdorida mol egasi bo'lish
+• Mol ustidan bir yil o'tishi (havl)
+
+📌 Nisob miqdori:
+🥇 Oltin: 85 gr oltin yoki qiymati
+🥈 Kumush: 595 gr kumush yoki qiymati
+💵 Naqd pul: kumush nisobicha
+
+📌 Zakot nisbati:
+Mol-mulkning 2.5% (1/40)
+
+📌 Zakot beriladigan 8 toifa:
+1. Faqirlar
+2. Miskinlar
+3. Zakot yig'uvchilar
+4. Qalblari isitish kerak bo'lganlar
+5. Qullar (ozod qilish uchun)
+6. Qarzdarlar
+7. Alloh yo'lida
+8. Musofirlar
+
+📖 Qur'on: "Namozni qoim qiling va zakotni bering." (Al-Baqara 43)`,
+  },
+  {
+    id: "sawm",
+    title: "Ro'za",
+    icon: "🌙",
+    color: "#065F46",
+    subtitle: "Ramazon saboqlari",
+    content: `Ro'za – islomning besh ustunidan biri bo'lib, Ramazon oyida tutiladi.
+
+📌 Ro'zaning ruknlari:
+• Niyat
+• Tong otishidan to quyosh botishigacha ovqat, ichimlik va jinsiy aloqadan tiyilish
+
+📌 Ro'zani buzadigan narsalar:
+• Ataylab yeyish-ichish
+• Jinsiy aloqa
+• Qusish (ataylab)
+• Hayz va nifos
+
+📌 Ro'zaning hikmatlari:
+🤲 Taqvo – Allohdan qo'rqish hissini kuchaytiradi
+💪 Sabr – nafsni tarbiyalaydi
+🤝 Hamjihatlik – kambag'allarning holatini his etish
+❤️ Shukr – ne'matlarning qadriga etish
+
+📌 Ramazon fazilatlari:
+• Qur'on nozil bo'lgan oy
+• Laylatul-Qadr kechasi
+• Jannat eshiklari ochiladi
+• Shayton bog'lab qo'yiladi
+
+📖 Qur'on: "Ey iymon keltirganlar! Sizlardan avvalgilar uchun farz qilinganidek, sizlarga ham ro'za farz qilindi." (Al-Baqara 183)`,
+  },
+  {
+    id: "hajj",
+    title: "Haj",
+    icon: "🕋",
+    color: "#064E3B",
+    subtitle: "Muqaddas safar",
+    content: `Haj – islomning besh ustunidan biri bo'lib, imkon bo'lganda hayotida bir marta Makkaga borish farzdir.
+
+📌 Hajning shartlari:
+• Muslim bo'lish
+• Aqli joyida bo'lish
+• Balog'atga etgan bo'lish
+• Erkin bo'lish
+• Jismoniy va moliyaviy qodir bo'lish
+
+📌 Hajning asosiy manasiki:
+1. 🕌 Ihrom kiyish va niyat
+2. 🏃 Tavof – Ka'bani 7 marta aylanish
+3. 🚶 Sa'y – Safa va Marva o'rtasida 7 marta yurish
+4. ⛰️ Arafot – 9 Zulhijjada Arafotda turish
+5. 🌙 Muzdalifa – kechasi o'tkazish
+6. 🏕️ Mina – 3 kun turish, Jamorot toshlarini otish
+7. ✂️ Taqsir yoki halq – soch qirqish/olish
+
+📌 Haj turlari:
+• Ifrod – faqat haj
+• Tamattu' – umra + haj
+• Qiran – haj va umrani birga
+
+📖 Hadis: "Makka ziyoratch inson gunohlardan qaytgan kuni tug'ilgan kunidek poklanib qaytadi." (Buxoriy)`,
+  },
+];
+
+export const PRAYER_NAMES = {
+  fajr: { name: "Bomdod", icon: "🌄", color: "#6366f1" },
+  sunrise: { name: "Quyosh chiqishi", icon: "🌅", color: "#f59e0b" },
+  dhuhr: { name: "Peshin", icon: "☀️", color: "#f97316" },
+  asr: { name: "Asr", icon: "🌤️", color: "#eab308" },
+  maghrib: { name: "Shom", icon: "🌆", color: "#ef4444" },
+  isha: { name: "Xufton", icon: "🌙", color: "#8b5cf6" },
+};
