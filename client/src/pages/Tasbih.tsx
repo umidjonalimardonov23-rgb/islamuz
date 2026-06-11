@@ -1,143 +1,151 @@
 import { useState, useEffect } from "react";
 
-const TASBIH_OPTIONS = [
-  { label: "سُبْحَانَ اللَّهِ", uzbek: "Subhanalloh", target: 33 },
-  { label: "الْحَمْدُ لِلَّهِ", uzbek: "Alhamdulilloh", target: 33 },
-  { label: "اللَّهُ أَكْبَرُ", uzbek: "Allohu Akbar", target: 34 },
-  { label: "لَا إِلَهَ إِلَّا اللَّهُ", uzbek: "La ilaha illalloh", target: 100 },
-  { label: "أَسْتَغْفِرُ اللَّهَ", uzbek: "Astaghfirulloh", target: 100 },
+const DHIKRS = [
+  { ar: "سُبْحَانَ اللَّهِ",      uz: "Subhonalloh",      meaning: "Alloh pok",           target: 33  },
+  { ar: "الْحَمْدُ لِلَّهِ",       uz: "Alhamdulilloh",    meaning: "Allohga hamd",        target: 33  },
+  { ar: "اللَّهُ أَكْبَرُ",        uz: "Allohu Akbar",     meaning: "Alloh ulug'",         target: 34  },
+  { ar: "لَا إِلَٰهَ إِلَّا اللَّهُ", uz: "La ilaha illalloh", meaning: "Allohdan boshqa iloh yo'q", target: 100 },
+  { ar: "أَسْتَغْفِرُ اللَّهَ",    uz: "Astaghfirulloh",  meaning: "Allohdan kechirim",   target: 100 },
+  { ar: "صَلِّ عَلَى النَّبِيِّ",  uz: "Sallohu aleyhi",  meaning: "Payg'ambarga salavot",target: 100 },
 ];
 
 export default function Tasbih() {
+  const [idx, setIdx] = useState(0);
   const [count, setCount] = useState(0);
-  const [selectedIdx, setSelectedIdx] = useState(0);
-  const [pulse, setPulse] = useState(false);
   const [total, setTotal] = useState(0);
+  const [flash, setFlash] = useState(false);
 
-  const selected = TASBIH_OPTIONS[selectedIdx];
-  const progress = Math.min((count / selected.target) * 100, 100);
-  const completed = Math.floor(count / selected.target);
-  const remaining = count % selected.target;
+  const dhikr = DHIKRS[idx];
+  const rounds = Math.floor(count / dhikr.target);
+  const cur = count % dhikr.target;
+  const pct = Math.min((cur / dhikr.target) * 100, 100);
 
   useEffect(() => {
-    const saved = localStorage.getItem("tasbih_count");
-    if (saved) setCount(Number(saved));
-    const savedTotal = localStorage.getItem("tasbih_total");
-    if (savedTotal) setTotal(Number(savedTotal));
-  }, []);
+    const saved = localStorage.getItem(`tasbih_${idx}`);
+    setCount(saved ? Number(saved) : 0);
+    const savedTotal = localStorage.getItem("tasbih_total_all");
+    setTotal(savedTotal ? Number(savedTotal) : 0);
+  }, [idx]);
 
-  const addCount = (n: number) => {
-    const newCount = count + n;
-    setCount(newCount);
-    setTotal(t => {
-      const newTotal = t + n;
-      localStorage.setItem("tasbih_total", String(newTotal));
-      return newTotal;
-    });
-    localStorage.setItem("tasbih_count", String(newCount));
-    setPulse(true);
-    setTimeout(() => setPulse(false), 150);
+  const add = (n: number) => {
+    const nc = count + n;
+    setCount(nc);
+    localStorage.setItem(`tasbih_${idx}`, String(nc));
+    const nt = total + n;
+    setTotal(nt);
+    localStorage.setItem("tasbih_total_all", String(nt));
+    setFlash(true);
+    setTimeout(() => setFlash(false), 120);
   };
 
   const reset = () => {
     setCount(0);
-    localStorage.setItem("tasbih_count", "0");
+    localStorage.setItem(`tasbih_${idx}`, "0");
   };
 
   return (
-    <div className="p-4 space-y-4">
-      {/* Selector */}
-      <div className="grid grid-cols-1 gap-2">
-        {TASBIH_OPTIONS.map((opt, i) => (
-          <button
-            key={i}
-            onClick={() => { setSelectedIdx(i); setCount(0); }}
-            className={`flex items-center justify-between px-4 py-2.5 rounded-xl border transition-all ${
-              selectedIdx === i
-                ? "bg-primary text-white border-primary shadow-md"
-                : "bg-card border-border text-foreground hover:border-primary/50"
-            }`}
-          >
-            <span className={`arabic-text text-base ${selectedIdx === i ? "text-white" : "text-primary"}`}>
-              {opt.label}
-            </span>
-            <div className="text-right">
-              <div className={`text-xs font-medium ${selectedIdx === i ? "text-white/90" : "text-muted-foreground"}`}>
-                {opt.uzbek}
+    <div className="p-4 space-y-3">
+
+      {/* Dhikr selector */}
+      <div className="bg-white dark:bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
+        <div className="px-4 pt-3 pb-1">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">Zikr tanlang</p>
+        </div>
+        <div className="divide-y divide-border">
+          {DHIKRS.map((d, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`w-full flex items-center justify-between px-4 py-3 text-left tap-active transition-colors ${
+                idx === i ? "bg-primary/5" : "hover:bg-muted/50"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+                  idx === i ? "border-primary bg-primary" : "border-muted-foreground/40"
+                }`}>
+                  {idx === i && <span className="w-2 h-2 rounded-full bg-white block" />}
+                </div>
+                <div>
+                  <div className="arabic text-base text-right" style={{ direction: "rtl" }}>{d.ar}</div>
+                  <div className="text-xs text-muted-foreground">{d.uz} • {d.meaning}</div>
+                </div>
               </div>
-              <div className={`text-xs ${selectedIdx === i ? "text-white/70" : "text-muted-foreground"}`}>
-                Maqsad: {opt.target}
+              <div className={`text-xs font-bold ml-2 flex-shrink-0 ${idx === i ? "text-primary" : "text-muted-foreground"}`}>
+                ×{d.target}
               </div>
-            </div>
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Main counter */}
-      <div className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
+      {/* Counter card */}
+      <div className="bg-white dark:bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
         {/* Progress bar */}
-        <div className="h-2 bg-muted">
+        <div className="h-1.5 bg-muted">
           <div
-            className="h-full islamic-gradient transition-all duration-300"
-            style={{ width: `${progress}%` }}
+            className="h-full bg-primary transition-all duration-300 rounded-r-full"
+            style={{ width: `${pct}%` }}
           />
         </div>
 
-        <div className="p-6 text-center">
-          <div className="arabic-text text-2xl text-primary mb-1">{selected.label}</div>
-          <div className="text-sm text-muted-foreground mb-4">{selected.uzbek}</div>
+        <div className="p-5 text-center">
+          <div className="arabic text-3xl text-primary mb-1">{dhikr.ar}</div>
+          <div className="text-sm text-muted-foreground">{dhikr.uz}</div>
 
-          {/* Big count button */}
+          {/* Big tap circle */}
           <button
-            onClick={() => addCount(1)}
-            className={`tasbih-button w-48 h-48 rounded-full islamic-gradient text-white shadow-2xl flex flex-col items-center justify-center mx-auto transition-all ${
-              pulse ? "scale-95 shadow-lg" : "hover:scale-105"
-            }`}
+            onClick={() => add(1)}
+            className={`mt-5 w-44 h-44 rounded-full mx-auto flex flex-col items-center justify-center shadow-2xl tap-active transition-all
+              ${flash ? "scale-95 shadow-primary/30" : "hover:scale-105"}
+              green-gradient text-white`}
           >
-            <span className="text-6xl font-bold tabular-nums">{remaining || count}</span>
-            <span className="text-sm opacity-80 mt-1">bosing</span>
+            <span className="text-6xl font-bold tabular-nums leading-none">{cur}</span>
+            <span className="text-sm opacity-75 mt-1">/ {dhikr.target}</span>
           </button>
 
-          {/* Completed rounds */}
-          {completed > 0 && (
-            <div className="mt-4 text-sm text-muted-foreground">
-              🔄 {completed} marta tugallandi ({count} jami)
+          {rounds > 0 && (
+            <div className="mt-3 inline-flex items-center gap-1.5 bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-medium">
+              🔄 {rounds} marta tugallandi
             </div>
           )}
 
-          {/* Progress text */}
-          <div className="mt-2 text-xs text-muted-foreground">
-            {remaining} / {selected.target} • Jami bugun: {total}
-          </div>
+          <div className="mt-2 text-xs text-muted-foreground">Jami: {count}</div>
         </div>
       </div>
 
       {/* Action buttons */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-2">
         <button
-          onClick={() => addCount(1)}
-          className="bg-primary/10 hover:bg-primary/20 text-primary rounded-xl py-3 font-semibold text-lg transition-colors"
+          onClick={() => add(1)}
+          className="bg-primary text-white rounded-xl py-3.5 font-bold text-xl tap-active shadow-sm hover:bg-primary/90"
         >
           +1
         </button>
         <button
-          onClick={() => addCount(10)}
-          className="bg-primary/10 hover:bg-primary/20 text-primary rounded-xl py-3 font-semibold text-lg transition-colors"
+          onClick={() => add(10)}
+          className="bg-primary/10 text-primary rounded-xl py-3.5 font-bold text-xl tap-active hover:bg-primary/20"
         >
           +10
         </button>
         <button
           onClick={reset}
-          className="bg-destructive/10 hover:bg-destructive/20 text-destructive rounded-xl py-3 font-semibold text-sm transition-colors"
+          className="bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 rounded-xl py-3.5 font-semibold text-sm tap-active hover:bg-red-100"
         >
           🔄 Reset
         </button>
       </div>
 
-      {/* Total stats */}
-      <div className="rounded-xl bg-muted p-4 text-center">
-        <div className="text-xs text-muted-foreground">Bugungi jami tasbih</div>
-        <div className="text-2xl font-bold text-primary mt-1">{total}</div>
+      {/* Stats */}
+      <div className="grid grid-cols-2 gap-2">
+        <div className="bg-white dark:bg-card rounded-xl border border-border p-3 text-center shadow-sm">
+          <div className="text-2xl font-bold text-primary">{count}</div>
+          <div className="text-xs text-muted-foreground mt-0.5">Ushbu zikr</div>
+        </div>
+        <div className="bg-white dark:bg-card rounded-xl border border-border p-3 text-center shadow-sm">
+          <div className="text-2xl font-bold text-primary">{total}</div>
+          <div className="text-xs text-muted-foreground mt-0.5">Jami bugun</div>
+        </div>
       </div>
     </div>
   );

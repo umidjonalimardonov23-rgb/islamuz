@@ -5,107 +5,100 @@
 @layer base {
   :root {
     --radius: 0.75rem;
-
-    /* Islamic Green Theme */
-    --background: 150 30% 97%;
-    --foreground: 160 25% 10%;
+    --background: 150 20% 96%;
+    --foreground: 220 25% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 160 25% 10%;
+    --card-foreground: 220 25% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 160 25% 10%;
-    --primary: 158 64% 38%;
+    --popover-foreground: 220 25% 12%;
+    --primary: 158 64% 32%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 151 48% 85%;
-    --secondary-foreground: 160 40% 20%;
-    --muted: 150 20% 93%;
-    --muted-foreground: 155 15% 45%;
-    --accent: 152 56% 52%;
+    --secondary: 150 30% 90%;
+    --secondary-foreground: 158 40% 20%;
+    --muted: 150 15% 93%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 152 56% 48%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 150 20% 88%;
-    --input: 150 20% 88%;
-    --ring: 158 64% 38%;
-    --chart-1: 158 64% 38%;
-    --chart-2: 152 56% 52%;
-    --chart-3: 151 48% 75%;
-    --chart-4: 165 80% 30%;
-    --chart-5: 155 70% 20%;
-    --sidebar-background: 158 64% 38%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 151 48% 85%;
-    --sidebar-primary-foreground: 160 40% 20%;
-    --sidebar-accent: 152 56% 52%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 165 40% 30%;
-    --sidebar-ring: 151 48% 85%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 158 64% 32%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 12%;
+    --sidebar-primary: 158 64% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 30% 90%;
+    --sidebar-accent-foreground: 158 40% 20%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 158 64% 32%;
   }
 
   .dark {
-    --background: 160 25% 8%;
-    --foreground: 150 20% 95%;
-    --card: 160 25% 12%;
-    --card-foreground: 150 20% 95%;
-    --popover: 160 25% 12%;
-    --popover-foreground: 150 20% 95%;
-    --primary: 158 64% 38%;
+    --background: 220 25% 10%;
+    --foreground: 150 10% 95%;
+    --card: 220 25% 14%;
+    --card-foreground: 150 10% 95%;
+    --popover: 220 25% 14%;
+    --popover-foreground: 150 10% 95%;
+    --primary: 158 55% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 160 25% 18%;
-    --secondary-foreground: 150 20% 90%;
-    --muted: 160 20% 15%;
-    --muted-foreground: 155 15% 60%;
-    --accent: 152 56% 45%;
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 150 10% 90%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 152 50% 42%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 160 20% 20%;
-    --input: 160 20% 20%;
-    --ring: 158 64% 38%;
-    --sidebar-background: 160 25% 8%;
-    --sidebar-foreground: 150 20% 95%;
-    --sidebar-primary: 158 64% 38%;
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 158 55% 42%;
+    --sidebar-background: 220 25% 14%;
+    --sidebar-foreground: 150 10% 95%;
+    --sidebar-primary: 158 55% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 160 25% 18%;
-    --sidebar-accent-foreground: 150 20% 90%;
-    --sidebar-border: 160 20% 20%;
-    --sidebar-ring: 158 64% 38%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 150 10% 90%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 158 55% 42%;
   }
 
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
 @layer utilities {
-  .arabic-text {
-    font-family: 'Traditional Arabic', 'Arial Unicode MS', 'Amiri', serif;
+  .arabic {
+    font-family: 'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', serif;
     direction: rtl;
-    line-height: 2;
+    unicode-bidi: bidi-override;
+    line-height: 1.9;
+    letter-spacing: 0;
   }
 
-  .islamic-gradient {
-    background: linear-gradient(135deg, #047857 0%, #10B981 50%, #34D399 100%);
+  .prayer-bg {
+    background: linear-gradient(180deg, #0a2540 0%, #0f3d2e 60%, #0d5c3a 100%);
   }
 
-  .tasbih-button {
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  .green-gradient {
+    background: linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%);
   }
 
-  .tasbih-button:active {
-    transform: scale(0.95);
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm;
   }
 
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  .tap-active:active { transform: scale(0.96); }
 }

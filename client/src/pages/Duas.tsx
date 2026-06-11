@@ -2,70 +2,67 @@ import { useState } from "react";
 import { DUAS } from "@/lib/islamicData";
 
 export default function Duas() {
-  const [activeCategory, setActiveCategory] = useState(0);
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [catIdx, setCatIdx] = useState(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
-  const cat = DUAS[activeCategory];
+  const cat = DUAS[catIdx];
 
   return (
-    <div className="p-4 space-y-4">
-      {/* Category tabs */}
+    <div className="p-4 space-y-3">
+
+      {/* Category pills */}
       <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
         {DUAS.map((c, i) => (
           <button
             key={i}
-            onClick={() => { setActiveCategory(i); setExpanded(null); }}
-            className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium transition-all ${
-              activeCategory === i
+            onClick={() => { setCatIdx(i); setOpenIdx(null); }}
+            className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium tap-active transition-all ${
+              catIdx === i
                 ? "bg-primary text-white shadow-sm"
-                : "bg-card border border-border text-foreground hover:border-primary/50"
+                : "bg-white dark:bg-card border border-border text-foreground"
             }`}
           >
-            <span>{c.icon}</span>
-            <span>{c.category}</span>
+            <span>{c.icon}</span> {c.category}
           </button>
         ))}
       </div>
 
-      {/* Duas list */}
-      <div className="space-y-3">
+      {/* Duas */}
+      <div className="space-y-2">
         {cat.items.map((dua, i) => (
-          <div
-            key={i}
-            className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden"
-          >
+          <div key={i} className="bg-white dark:bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
             <button
-              onClick={() => setExpanded(expanded === i ? null : i)}
-              className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-muted/50 transition-colors"
+              onClick={() => setOpenIdx(openIdx === i ? null : i)}
+              className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-muted/30 tap-active transition-colors"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full islamic-gradient flex items-center justify-center text-white text-xs font-bold">
-                  {i + 1}
-                </div>
-                <span className="font-semibold text-sm text-foreground">{dua.title}</span>
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="text-primary font-bold text-sm">{i + 1}</span>
               </div>
-              <span className={`text-primary transition-transform ${expanded === i ? "rotate-180" : ""}`}>▼</span>
+              <span className="flex-1 font-semibold text-sm text-foreground">{dua.title}</span>
+              <span className={`text-muted-foreground text-sm transition-transform duration-200 ${openIdx === i ? "rotate-180" : ""}`}>
+                ▾
+              </span>
             </button>
 
-            {expanded === i && (
-              <div className="px-4 pb-4 space-y-3 border-t border-border">
-                {/* Arabic */}
-                <div className="bg-primary/5 rounded-xl p-3 mt-3">
-                  <p className="arabic-text text-right text-lg text-primary leading-loose">
+            {openIdx === i && (
+              <div className="border-t border-border px-4 pb-4 pt-3 space-y-3">
+                {/* Arabic text */}
+                <div className="bg-primary/5 rounded-xl p-4">
+                  <p className="arabic text-right text-xl text-primary leading-loose">
                     {dua.arabic}
                   </p>
                 </div>
 
-                {/* Transliteration */}
+                {/* Uzbek */}
                 <div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Transkripsiya</div>
-                  <p className="text-sm italic text-foreground/80">{dua.transliteration}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-1">Ma'nosi</p>
+                  <p className="text-sm text-foreground leading-relaxed">{dua.uzbek}</p>
                 </div>
 
-                {/* Uzbek meaning */}
-                <div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Ma'nosi (O'zbek)</div>
-                  <p className="text-sm text-foreground">{dua.uzbek}</p>
+                {/* Transliteration */}
+                <div className="bg-muted/50 rounded-xl p-3">
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-1">Transkripsiya</p>
+                  <p className="text-xs italic text-foreground/80 leading-relaxed">{dua.transliteration}</p>
                 </div>
               </div>
             )}
