@@ -5,10 +5,13 @@ import { log } from "./vite";
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
 const ADMIN_ID = Number(process.env.ADMIN_ID ?? "8787603995");
 
-// Get Mini App URL from Replit domain
-const MINI_APP_URL = process.env.REPLIT_DOMAINS
-  ? `https://${process.env.REPLIT_DOMAINS.split(",")[0]}`
-  : "https://localhost:5000";
+// Get Mini App URL — works on Replit, Render, and any hosting
+const MINI_APP_URL =
+  process.env.MINI_APP_URL ||
+  (process.env.REPLIT_DOMAINS
+    ? `https://${process.env.REPLIT_DOMAINS.split(",")[0]}`
+    : process.env.RENDER_EXTERNAL_URL ||
+      `http://localhost:${process.env.PORT || 5000}`);
 
 export function startBot() {
   if (!TOKEN) {

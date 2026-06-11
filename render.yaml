@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: islomiy-ilova
+    env: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        value: "8787603995"
