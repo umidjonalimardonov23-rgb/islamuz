@@ -1,0 +1,141 @@
+Zo‘r tanlov, Umid! ✅
+Endi Replit orqali telefoningizda qanday qilib o‘z web-saytingizni yaratishingizni qadam-baqadam tushuntiraman.
+
+
+---
+
+📲 1-QADAM: Replit saytiga kirish
+
+1. Telefoningizdan brauzer (masalan, Chrome) ni oching
+
+
+2. Kiriting: https://replit.com
+
+
+3. “Sign up” (yoki “Log in”) tugmasini bosing
+
+Google akkauntingiz orqali tezda kirishingiz mumkin
+
+
+
+
+
+---
+
+📲 2-QADAM: Yangi loyiha (Repl) yaratish
+
+1. Sahifaning yuqori qismida + Create Repl tugmasini bosing
+
+
+2. HTML, CSS, JS ni tanlang
+
+
+3. Loyiha nomini kiriting: masalan, umid-galereya
+
+
+4. Create Repl tugmasini bosing
+
+
+
+
+---
+
+📲 3-QADAM: Kod yozish
+
+Replit sizga 3 ta fayl beradi:
+
+index.html — bu asosiy sahifa
+
+style.css — dizayn uchun
+
+script.js — JavaScript (hozircha kerak emas)
+
+
+index.html fayliga mana bu kodni yozing 👇
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umid Galereyasi</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>📸 Umid Galereyasi</h1>
+  <p>Sevimli suratlarim:</p>
+  <div class="gallery">
+    <img src="photo1.jpg" alt="Surat 1" />
+    <img src="photo2.jpg" alt="Surat 2" />
+    <img src="photo3.jpg" alt="Surat 3" />
+  </div>
+</body>
+</html>
+
+
+---
+
+📲 4-QADAM: style.css fayliga bu kodni yozing 👇
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #aaa;
+}
+
+
+---
+
+📲 5-QADAM: Rasm fayllarini joylashtirish
+
+1. Chap tomonda Files bo‘limiga o‘ting
+
+
+2. Upload file tugmasini bosing
+
+
+3. Telefoningizdan 3 ta rasm tanlang: photo1.jpg, photo2.jpg, photo3.jpg deb nomlang
+
+
+
+
+---
+
+📲 6-QADAM: Saytingizni ishga tushirish
+
+1. Yuqoridagi “Run” tugmasini bosing
+
+
+2. Saytingiz ochiladi!
+
+
+3. Linkni nusxa qilib do‘stlaringizga yuborishingiz ham mumkin 🎉
+
+
+
+
+---
+
+Xohlasangiz, men siz uchun tayyor Replit loyihasi yaratib, link berishim ham mumkin.
+
+Yordam kerak bo‘lsa, faqat yozing:
+✅ "Rasmlarni yuklay olmadim"
+✅ "Kodni nusxa qilib ber"
+✅ "Tailwind versiyasini istayman"
+
+Endi davom etamizmi? Rasmlar tayyormi?
+
