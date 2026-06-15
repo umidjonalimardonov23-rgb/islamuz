@@ -1,4 +1,5 @@
 import { Telegraf, Markup, Context } from "telegraf";
+import type { Express } from "express";
 import { PRAYER_TIMES_TASHKENT, NAMES_99, HADITHS, DUAS } from "../shared/islamicData";
 import { log } from "./vite";
 
@@ -15,11 +16,12 @@ const MINI_APP_URL =
       : process.env.RENDER_EXTERNAL_URL ||
         `http://localhost:${process.env.PORT || 5000}`);
 
-export function startBot() {
+export function setupBot(app: Express) {
   if (!TOKEN) {
-    log("⚠️  TELEGRAM_BOT_TOKEN not set, skipping bot startup");
+    console.log("⚠️  TELEGRAM_BOT_TOKEN not set, skipping bot startup");
     return;
   }
+  console.log("🤖 Bot ishga tushmoqda...");
 
   const bot = new Telegraf(TOKEN);
 
@@ -487,13 +489,39 @@ export function startBot() {
 
   // ─── Error handling ──────────────────────────────────────────────────────
   bot.catch((err: unknown, ctx: Context) => {
-    log(`Bot error for ${ctx.updateType}: ${err}`);
+    console.error(`❌ Bot xatosi (${ctx.updateType}):`, err);
   });
 
-  // ─── Launch ───────────────────────────────────────────────────────────────
-  bot.launch({ dropPendingUpdates: true })
-    .then(() => log("🤖 Telegram bot ishga tushdi!"))
-    .catch((err) => log(`Bot ishga tushishda xato: ${err}`));
+  // ─── Launch: webhook in production, polling in dev ────────────────────────
+  const railwayDomain = process.env.RAILWAY_PUBLIC_DOMAIN;
+
+  if (railwayDomain) {
+    // Production: use webhook (avoids 409 conflict with multiple instances)
+    const webhookPath = "/telegram-webhook";
+    const webhookUrl = `https://${railwayDomain}${webhookPath}`;
+
+    app.use(webhookPath, bot.webhookCallback(webhookPath));
+
+    bot.telegram.setWebhook(webhookUrl, { drop_pending_updates: true })
+      .then(() => {
+        console.log(`✅ Webhook o'rnatildi: ${webhookUrl}`);
+        console.log(`🌐 Mini App URL: ${MINI_APP_URL}`);
+        console.log(`👑 Admin ID: ${ADMIN_ID}`);
+      })
+      .catch((err: unknown) => {
+        console.error("❌ Webhook o'rnatishda XATO:", err);
+      });
+  } else {
+    // Development: use long-polling (non-blocking)
+    bot.launch({ dropPendingUpdates: true })
+      .then(() => {
+        console.log("✅ Telegram bot (polling) ishga tushdi!");
+        console.log(`🌐 Mini App URL: ${MINI_APP_URL}`);
+      })
+      .catch((err: unknown) => {
+        console.error("❌ Bot polling xatosi:", err);
+      });
+  }
 
   process.once("SIGINT",  () => bot.stop("SIGINT"));
   process.once("SIGTERM", () => bot.stop("SIGTERM"));
